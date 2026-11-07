@@ -1,11 +1,14 @@
 :root {
-  --verde-escuro: #0f3d22;
-  --verde-medio: #17552f;
-  --verde: #1f7a41;
-  --verde-forte: #16612f;
-  --verde-claro: #eef6f0;
-  --borda: #dbe9df;
-  --destaque: #8fd6a5;
+  /* cores tiradas do logo */
+  --verde-logo: #50c33d;
+  --vermelho: #e3120b;
+  --verde-escuro: #154a1b;
+  --verde-medio: #1f6326;
+  --verde: #2a8a2c;
+  --verde-forte: #217023;
+  --verde-claro: #eff8ec;
+  --borda: #d8ecd2;
+  --destaque: #7fdc6a;
   --texto: #14261b;
   --suave: #55665b;
   --branco: #ffffff;
@@ -56,7 +59,7 @@ h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
 .topo__linha { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .marca { display: flex; align-items: center; gap: .6rem; text-decoration: none; font-size: 1.2rem; font-family: Fraunces, serif; }
 .marca__icone {
-  width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center;
+  width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
   background: var(--verde); color: #fff; font-weight: 800; overflow: hidden;
 }
 .marca__icone img { width: 100%; height: 100%; object-fit: contain; }
@@ -67,7 +70,7 @@ h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
 .menu-btn { display: none; background: none; border: 0; font-size: 1.6rem; cursor: pointer; color: var(--verde-escuro); }
 
 /* Hero */
-.hero { background: linear-gradient(180deg, var(--verde-claro), var(--branco)); padding: 72px 0 88px; overflow: hidden; }
+.hero { background: radial-gradient(circle at 85% 10%, #d9f2d1, transparent 45%), linear-gradient(180deg, var(--verde-claro), var(--branco)); padding: 72px 0 88px; overflow: hidden; }
 .hero__grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
 .hero__texto { font-size: 1.15rem; color: var(--suave); max-width: 34ch; }
 .hero__acoes { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0; }
@@ -114,7 +117,7 @@ h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
 .produto__foto { overflow: hidden; }
 .produto__foto svg { width: 58%; color: var(--verde-medio); }
 .selo {
-  position: absolute; top: 12px; left: 12px; background: var(--verde); color: #fff;
+  position: absolute; top: 12px; left: 12px; background: var(--vermelho); color: #fff;
   font-size: .75rem; font-weight: 700; padding: .3em .8em; border-radius: 999px;
 }
 .desconto {
@@ -125,7 +128,7 @@ h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
 .produto__cat { font-size: .78rem; color: var(--suave); text-transform: uppercase; letter-spacing: .1em; }
 .produto h3 { font-family: Inter, sans-serif; font-size: 1.05rem; margin: 0 0 6px; }
 .preco-de { color: var(--suave); text-decoration: line-through; font-size: .9rem; }
-.preco-por { font-size: 1.5rem; font-weight: 700; color: var(--verde-forte); }
+.preco-por { font-size: 1.5rem; font-weight: 700; color: var(--vermelho); }
 .parcelas { font-size: .88rem; color: var(--suave); margin-bottom: 14px; }
 .produto .btn { margin-top: auto; text-align: center; }
 
@@ -178,7 +181,11 @@ h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
 
 /* Rodapé */
 .rodape { background: var(--verde-escuro); color: var(--borda); padding: 28px 0; font-size: .9rem; }
-.rodape__linha { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.rodape__linha { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.rodape__marca { display: flex; align-items: center; gap: 14px; }
+.rodape__marca img { width: 72px; height: 72px; }
+.rodape__marca em { display: block; font-family: Fraunces, serif; color: var(--destaque); font-size: 1.05rem; }
+.hero__logo { width: 92px; height: 92px; margin-bottom: 16px; filter: drop-shadow(0 6px 14px rgba(21, 74, 27, .25)); }
 
 .whats-flutuante {
   position: fixed; right: 20px; bottom: 20px; width: 58px; height: 58px; border-radius: 50%;

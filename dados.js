@@ -8,7 +8,7 @@ const LOJA = {
   whatsapp: "5588900000000", // DDI + DDD + número, só dígitos (TROCAR)
   telefone: "(88) 9 0000-0000", // TROCAR
   endereco: "Rua Exemplo, 123 - Centro, Carnaubal - CE", // TROCAR
-  logo: "", // caminho do logo, ex.: "assets/logo.png" (vazio = letra G)
+  logo: "assets/logo.png",
   horario: "Seg a Sex: 7h às 18h · Sáb: 7h às 13h", // CONFIRMAR
 };
 
