@@ -70,6 +70,11 @@ function renderFeed() {
 /* Ilustrações nos blocos decorativos */
 document.querySelectorAll("[data-icone]").forEach((el) => { el.innerHTML = ICONES[el.dataset.icone]; });
 
+/* Logo */
+if (LOJA.logo) document.querySelectorAll("[data-logo]").forEach((el) => {
+  el.innerHTML = `<img src="${LOJA.logo}" alt="">`; el.style.background = "transparent";
+});
+
 /* Dados da loja */
 document.querySelectorAll("[data-whats]").forEach((a) => {
   a.href = linkWhats("Olá, Garra Móveis! Vim pelo site e gostaria de mais informações.");

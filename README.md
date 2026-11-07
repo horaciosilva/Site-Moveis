@@ -18,3 +18,10 @@ Tudo fica em **`dados.js`**:
 - Feed automático: conectar a API do Instagram (conta profissional) ou um serviço como Behold/LightWidget.
 - Domínio próprio (ex.: garramoveis.com.br).
 - Fotos reais da fachada e da equipe na seção "A loja".
+
+## Identidade visual
+- Cores: verde e branco (variáveis no topo de `styles.css`).
+- Logo: salve o arquivo em `assets/logo.png` e preencha `logo: "assets/logo.png"` em `dados.js`.
+
+## Fotos
+As fotos em `assets/` são ilustrativas, do banco gratuito Unsplash (licença Unsplash). Troque pelas fotos reais dos produtos antes de publicar.
