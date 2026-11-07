@@ -1,4 +1,4 @@
-/* Ilustrações simples usadas enquanto não há fotos reais */
+/* Ilustrações usadas quando um item ainda não tem foto */
 const ICONES = {
   sofa: '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M12 30v-8a6 6 0 0 1 6-6h28a6 6 0 0 1 6 6v8"/><path d="M6 32a4 4 0 0 1 8 0v6h36v-6a4 4 0 0 1 8 0v12H6Z"/><path d="M10 44v6M54 44v6"/></svg>',
   cama: '<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M8 50V14M8 36h48v14"/><path d="M8 36V28a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8"/><path d="M26 30h24a6 6 0 0 1 6 6"/></svg>',
@@ -18,10 +18,10 @@ const midia = (item) => item.imagem
 /* Ofertas */
 function renderOfertas(filtro = "Todos") {
   const lista = OFERTAS.filter((p) => filtro === "Todos" || p.categoria === filtro);
-  document.getElementById("lista-ofertas").innerHTML = lista.map((p) => {
+  document.getElementById("lista-ofertas").innerHTML = lista.map((p, i) => {
     const off = Math.round((1 - p.por / p.de) * 100);
     return `
-      <article class="produto">
+      <article class="produto" style="animation-delay:${i * 60}ms">
         <div class="produto__foto">
           ${midia(p)}
           ${p.selo ? `<span class="selo">${p.selo}</span>` : ""}
@@ -30,9 +30,11 @@ function renderOfertas(filtro = "Todos") {
         <div class="produto__info">
           <span class="produto__cat">${p.categoria}</span>
           <h3>${p.nome}</h3>
-          <span class="preco-de">de ${brl(p.de)}</span>
-          <span class="preco-por">${brl(p.por)}</span>
-          <span class="parcelas">ou ${p.parcelas}x de ${brl(p.por / p.parcelas)}</span>
+          <div class="produto__precos">
+            <span class="preco-por">${brl(p.por)}</span>
+            <span class="preco-de">${brl(p.de)}</span>
+          </div>
+          <span class="parcelas">ou <b>${p.parcelas}x de ${brl(p.por / p.parcelas)}</b> sem juros</span>
           <a class="btn" target="_blank" rel="noopener"
              href="${linkWhats(`Olá! Vi no site a oferta "${p.nome}" por ${brl(p.por)}. Ainda está disponível?`)}">Quero este</a>
         </div>
@@ -48,7 +50,7 @@ document.querySelectorAll("[data-ir]").forEach((a) => a.addEventListener("click"
   document.querySelector(`.filtro[data-filtro="${a.dataset.ir}"]`).click();
 }));
 
-/* Instagram */
+/* Instagram: 1 destaque + blocos de 4, para a grade sempre fechar */
 function renderFeed() {
   const feed = document.getElementById("feed");
   if (EMBED_OFICIAL) {
@@ -60,22 +62,16 @@ function renderFeed() {
     document.body.appendChild(s);
     return;
   }
-  feed.innerHTML = POSTS.map((p) => `
+  const qtd = POSTS.length ? 1 + 4 * Math.floor((POSTS.length - 1) / 4) : 0;
+  feed.innerHTML = POSTS.slice(0, qtd).map((p) => `
     <a class="post" href="${p.link}" target="_blank" rel="noopener" aria-label="${p.legenda}">
       ${midia(p)}
       <span class="post__legenda">${p.legenda}</span>
     </a>`).join("");
 }
 
-/* Ilustrações nos blocos decorativos */
-document.querySelectorAll("[data-icone]").forEach((el) => { el.innerHTML = ICONES[el.dataset.icone]; });
-
-/* Logo */
-if (LOJA.logo) document.querySelectorAll("[data-logo]").forEach((el) => {
-  el.innerHTML = `<img src="${LOJA.logo}" alt="Garra Móveis">`;
-});
-
 /* Dados da loja */
+if (LOJA.logo) document.querySelectorAll("[data-logo-img]").forEach((img) => { img.src = LOJA.logo; });
 document.querySelectorAll("[data-whats]").forEach((a) => {
   a.href = linkWhats("Olá, Garra Móveis! Vim pelo site e gostaria de mais informações.");
   a.target = "_blank"; a.rel = "noopener";
@@ -85,14 +81,34 @@ document.querySelectorAll("[data-insta-user]").forEach((el) => { el.textContent 
 document.querySelectorAll("[data-campo]").forEach((el) => { el.textContent = LOJA[el.dataset.campo]; });
 document.getElementById("ano").textContent = new Date().getFullYear();
 
+/* Topo: fica branco ao rolar */
+const topo = document.getElementById("topo");
+const atualizaTopo = () => topo.classList.toggle("rolado", scrollY > 40 || menu.classList.contains("aberto"));
+addEventListener("scroll", atualizaTopo, { passive: true });
+
 /* Menu mobile */
 const menuBtn = document.querySelector(".menu-btn");
 const menu = document.querySelector(".menu");
 menuBtn.addEventListener("click", () => {
   const aberto = menu.classList.toggle("aberto");
   menuBtn.setAttribute("aria-expanded", aberto);
+  atualizaTopo();
 });
-menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => menu.classList.remove("aberto")));
+menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
+  menu.classList.remove("aberto"); menuBtn.setAttribute("aria-expanded", false); atualizaTopo();
+}));
+
+/* Animação de entrada ao rolar */
+const revelar = document.querySelectorAll(".revelar");
+if ("IntersectionObserver" in window) {
+  const obs = new IntersectionObserver((itens) => itens.forEach((it) => {
+    if (it.isIntersecting) { it.target.classList.add("visivel"); obs.unobserve(it.target); }
+  }), { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  revelar.forEach((el, i) => { el.style.transitionDelay = `${(i % 4) * 80}ms`; obs.observe(el); });
+} else {
+  revelar.forEach((el) => el.classList.add("visivel"));
+}
 
 renderOfertas();
 renderFeed();
+atualizaTopo();
