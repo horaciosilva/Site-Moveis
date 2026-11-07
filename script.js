@@ -72,7 +72,7 @@ document.querySelectorAll("[data-icone]").forEach((el) => { el.innerHTML = ICONE
 
 /* Logo */
 if (LOJA.logo) document.querySelectorAll("[data-logo]").forEach((el) => {
-  el.innerHTML = `<img src="${LOJA.logo}" alt="">`; el.style.background = "transparent";
+  el.innerHTML = `<img src="${LOJA.logo}" alt="Garra Móveis">`;
 });
 
 /* Dados da loja */

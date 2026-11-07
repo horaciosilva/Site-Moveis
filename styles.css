@@ -58,12 +58,8 @@ h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
 }
 .topo__linha { display: flex; align-items: center; justify-content: space-between; height: 68px; }
 .marca { display: flex; align-items: center; gap: .6rem; text-decoration: none; font-size: 1.2rem; font-family: Fraunces, serif; }
-.marca__icone {
-  width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--verde); color: #fff; font-weight: 800; overflow: hidden;
-}
-.marca__icone img { width: 100%; height: 100%; object-fit: contain; }
-.marca strong { color: var(--verde); }
+.marca__icone { display: block; color: var(--verde); font-weight: 800; }
+.marca__icone img { height: 56px; width: auto; display: block; }
 .menu { display: flex; align-items: center; gap: 1.6rem; }
 .menu a:not(.btn) { text-decoration: none; font-weight: 500; color: var(--suave); }
 .menu a:not(.btn):hover { color: var(--verde); }
@@ -183,9 +179,9 @@ h2 { font-size: clamp(1.7rem, 3.5vw, 2.5rem); }
 .rodape { background: var(--verde-escuro); color: var(--borda); padding: 28px 0; font-size: .9rem; }
 .rodape__linha { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
 .rodape__marca { display: flex; align-items: center; gap: 14px; }
-.rodape__marca img { width: 72px; height: 72px; }
+.rodape__marca img { width: 150px; height: auto; }
 .rodape__marca em { display: block; font-family: Fraunces, serif; color: var(--destaque); font-size: 1.05rem; }
-.hero__logo { width: 92px; height: 92px; margin-bottom: 16px; filter: drop-shadow(0 6px 14px rgba(21, 74, 27, .25)); }
+.hero__logo { width: 230px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 6px 14px rgba(21, 74, 27, .25)); }
 
 .whats-flutuante {
   position: fixed; right: 20px; bottom: 20px; width: 58px; height: 58px; border-radius: 50%;

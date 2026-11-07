@@ -21,7 +21,7 @@ Tudo fica em **`dados.js`**:
 
 ## Identidade visual
 - Cores: verde e branco (variáveis no topo de `styles.css`).
-- Logo: `assets/logo.png` (recortado da foto de perfil do Instagram). Para melhor nitidez, trocar pelo arquivo original em alta resolução.
+- Logo: `assets/logo.png` (recortado, sem o fundo verde). Para máxima nitidez, trocar pelo arquivo original da arte.
 
 ## Fotos
 As fotos em `assets/` são ilustrativas, do banco gratuito Unsplash (licença Unsplash). Troque pelas fotos reais dos produtos antes de publicar.
