@@ -260,8 +260,11 @@ h3 { font-size: 1.2rem; font-weight: 700; }
   .menu a:not(.btn) { color: var(--texto); padding: 14px 0; border-bottom: 1px solid var(--linha); font-size: 1.05rem; }
   .menu a:not(.btn)::after { display: none; }
   .menu__cta { margin-top: 16px; }
+  .topo { padding-top: max(18px, env(safe-area-inset-top)); transition: background .3s, box-shadow .3s, padding .3s; }
+  .topo.rolado { padding-top: 0; }
   .topo__linha { height: 70px; }
   .marca img { height: 46px; }
+  .hero { padding-top: 150px; }
   .hero__fundo { background: linear-gradient(180deg, rgba(8, 34, 14, .55) 0%, rgba(8, 34, 14, .92) 70%), url("assets/hero-wide.jpg") 60% center/cover; }
   .hero__rodape { grid-template-columns: repeat(3, 1fr); }
   .hero__dado { padding: 18px 10px 0 0; }
