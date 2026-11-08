@@ -8,7 +8,7 @@ Abra `index.html` no navegador. Para publicar de graça: GitHub Pages, Netlify o
 ## Como atualizar o conteúdo
 Tudo fica em **`dados.js`**:
 
-- `LOJA` — WhatsApp, telefone, endereço, horário (hoje com valores de exemplo, **trocar**).
+- `LOJA` — endereço, telefone e CNPJ (preenchidos a partir de cadastros públicos: confirmar com a loja), WhatsApp e horário (ainda de exemplo).
 - `OFERTAS` — produtos em oferta. Coloque a foto em `assets/` e preencha `imagem: "assets/foto.jpg"`.
 - `POSTS` — posts do Instagram. Duas opções:
   - **Simples:** foto em `assets/` + link do post (carrega rápido, visual uniforme).

@@ -5,9 +5,10 @@ const LOJA = {
   nome: "Garra Móveis",
   cidade: "Carnaubal - CE",
   instagram: "garramoveisja",
-  whatsapp: "5588900000000", // DDI + DDD + número, só dígitos (TROCAR)
-  telefone: "(88) 9 0000-0000", // TROCAR
-  endereco: "Rua Exemplo, 123 - Centro, Carnaubal - CE", // TROCAR
+  whatsapp: "5588900000000", // DDI + DDD + número, só dígitos (TROCAR: número não encontrado)
+  telefone: "(88) 3650-1347", // fonte: Apontador (confirmar)
+  endereco: "Rua Deputado Vicente Ribeiro, 306 - Centro, Carnaubal - CE, 62375-000", // fonte: Apontador / Instagram
+  cnpj: "09.017.557/0001-00", // fonte: cadastros públicos de CNPJ (confirmar)
   logo: "assets/logo.png",
   horario: "Seg a Sex: 7h às 18h · Sáb: 7h às 13h", // CONFIRMAR
 };
